@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Welcome to FCC! </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyBiaHlS_llTEMatoz--lBnZzSW3VsrQ9wg",
+			authDomain: "asdasd-2a11d.firebaseapp.com",
+			databaseURL: "https://asdasd-2a11d.firebaseio.com",
+			projectId: "asdasd-2a11d",
+			storageBucket: "asdasd-2a11d.appspot.com",
+			messagingSenderId: "542568699295"
+		};
+		firebase.initializeApp(config);
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: #424242;
+		}
+
+		#flask {
+			width: 50%;
+			position: absolute;
+			left: 25%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="particles-js"></div>
+	<div id="overlay">
+		<div class="container">
+			<div id="flask" style="margin-top: 100px;">
+				<center>
+					<div class="card medium grey lighten-3">
+						<div style="padding-top: 2px; padding-left: 20px; padding-right: 20px;">
+							<h2> Log in </h2>
+							<form>
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="email" type="text" class="validate">
+										<label for="email">Email</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="password" type="password" class="validate">
+										<label for="password">Password</label>
+									</div>
+								</div>
+
+								<br>
+
+								<div>
+									<button id="sign-in" class="waves-effect waves-light btn black" style="float: left;">Sign In</button>
+									<button onclick="googlesignin()" class="waves-effect waves-light btn black" style="float: right;"> Sign in using Google </button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<script>
+	document.querySelector('#sign-in').addEventListener('click', function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		var email = document.querySelector('#email').value;
+		var password = document.querySelector('#password').value;
+
+		firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
+			window.alert(email + " has logged in");
+		}).catch(function(error) {
+			var errorCode = error.code;
+			var errorMessage = error.message;
+
+			if (errorCode === 'auth/wrong-password') {
+				alert('Wrong password.');
+			} else {
+				alert(errorMessage);
+			}
+			console.log(error);
+		});
+
+		function googlesignin() {
+			var provider = new firebase.auth.GoogleAuthProvider();
+			firebase.auth().signInWithPopup(provider).then(function(result) {
+				var token = result.credential.accessToken;
+				var user = result.user;
+			}).catch(function(error) {
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				var email = error.email;
+				var credential = error.credential;
+			});
+		}
+	});
+</script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+
+<!-- particles.js lib (JavaScript CodePen settings): https://github.com/VincentGarreau/particles.js -->
+  <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+<script src='https://threejs.org/examples/js/libs/stats.min.js'></script>
+
+    <script  src="js/index.js"></script>
+</html>
