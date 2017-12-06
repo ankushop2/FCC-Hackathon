@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Events </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="navbar-fixed">
+			<nav class="black">
+				<div class="container">
+					<div class="nav-wrapper">
+							<a style="padding-left: 20px;" href="#" class="brand-logo"><img src="img/glyph.png" height="30px"></a>
+							<ul id="nav-mobile" class="right hide-on-med-and-down">
+								<li><a href="/loggedin/dashboard">Dashboard</a></li>
+								<li><a href="/loggedin/events">Events</a></li>
+								<li><a href="/about">About</a></li>
+								<li><a href="/login">Logout</a></li>
+							</ul>
+						</div>
+				</div>
+			</nav>
+		</div>
+
+		<form action="/loggedin/events" method="POST">
+			<input type="text" name="name">
+			<input type="text" name="description">
+
+			<button type="submit">Create Event</button>
+		</form>
+
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>
