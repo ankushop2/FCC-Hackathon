@@ -2,11 +2,13 @@ var firebase = require("firebase");
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
+var session = require("client-sessions");
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(bodyParser.json())
-//app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 
 // FIREBASE CONFIG
@@ -16,11 +18,20 @@ var config = {
 	databaseURL: "https://fcc-hack.firebaseio.com/",
 	projectId: "fcc-hack",
 	storageBucket: "fcc-hack.appspot.com",
-	//messagingSenderId: "542568699295"
 };
 
 firebase.initializeApp(config);
 var ref = firebase.database().ref();
+
+app.use(session({
+  	cookieName: 'session',
+  	secret: 'kjhkjajdhd89whd',
+  	duration: 30 * 60 * 1000,
+  	activeDuration: 5 * 60 * 1000,
+  	httpOnly: true,
+	secure: true,
+	ephemeral: true
+}));
 
 
 // ROUTES
@@ -37,6 +48,7 @@ app.post("/login",function(req,res){
 		var password = req.body.password;
 		
 		firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
+			req.session.user = user;
 			res.redirect("/loggedin/home");
 		}).catch(function(error) {
 			var errorCode = error.code;
@@ -52,19 +64,27 @@ app.post("/login",function(req,res){
 });
 
 app.get("/loggedin/home", function(req, res) {
-    res.render("home");
+	if(!req.session || !req.session.user)
+		res.redirect("/login");
+	else
+    	res.render("home");
 });
 
 app.get("/loggedin/events", function(req, res) {
-	ref.once("value").then(function(snap) {
-		var json = snap.val();
-		var arr = [];
+	if(!req.session || !req.session.user)
+		res.redirect("/login");
 
-		for(var i in json)
-		  arr.push( json[i] );
+	else {
+		ref.once("value").then(function(snap) {
+			var json = snap.val();
+			var arr = [];
 
-		res.render("events", {events: arr});
-	});
+			for(var i in json)
+			  arr.push( json[i] );
+
+			res.render("events", {events: arr, removeKey: null});
+		});
+	}
 });
 
 app.post("/loggedin/events", function(req, res) {
@@ -72,20 +92,35 @@ app.post("/loggedin/events", function(req, res) {
 	event.set({
 		name: req.body.name,
 		description: req.body.description,
-		//date: req.body.date,
-		//time: req.body.time
 	});
 
 	res.redirect("/loggedin/events");
 });
 
 app.get("/loggedin/events/new", function(req, res) {
-	res.render("newEvent");
+	if(!req.session || !req.session.user)
+		res.redirect("/login");
+	else
+		res.render("newEvent");
 });
 
-app.post("/logout", function(req, res) {
+app.get("/loggedin/dashboard", function(req, res) {
+	if(!req.session || !req.session.user)
+		res.redirect("/login");
+	else
+		res.render("dashboard");
+});
+
+app.get("/about", function(req, res) {
+	if(!req.session || !req.session.user)
+		res.redirect("/login");
+	else
+		res.render("about");
+});
+
+app.get("/logout", function(req, res) {
 	firebase.auth().signOut().then(function() {
-		console.log('Signed Out');
+		req.session.reset();
 		res.redirect("/login");
 	},function(error) {
 		  console.error('Sign Out Error', error);

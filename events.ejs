@@ -8,15 +8,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <meta name="author" content="FCCBengaluru" />
-  <meta name="copyright" content="FCCBengaluru, Copyright (c) 2017" />
-  <meta name="keywords" content="Free Code Camp, Bengaluru, FCC, Ankush Arunkumar, Vishal Vishwanathan, Abhishek Patra, Hackathon">
-  <meta name="description" content="FCCBengaluru: Free Code Camp Bengaluru">
-  <meta property="og:site_name" content="FCC" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="en_IN" />
-  <meta property="og:locale:alternate" content="en_US" />
-
 </head>
 
 <body>
@@ -28,12 +19,12 @@
       <nav class="black">
         <div class="container">
           <div class="nav-wrapper">
-            <a style="padding-left: 20px;" href="#" class="brand-logo"><img src="img/glyph.png" height="30px"></a>
+            <a style="padding-left: 20px;" href="/loggedin/home" class="brand-logo"><img src="img/glyph.png" height="30px"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="dashboard.html">Dashboard</a></li>
-              <li><a href="events.html">Events</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="index.html">Logout</a></li>
+              <li><a href="/loggedin/dashboard">Dashboard</a></li>
+              <li><a href="/loggedin/events">Events</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/Logout">Logout</a></li>
             </ul>
           </div>
         </div>
@@ -57,13 +48,10 @@
               <div class="card grey darken-2">
                 <div class="card-content black-text">
                   <span class="card-title"><%= event.name %></span>
+                  <button class="waves-effect waves-light btn orange black-text" style="float: right;">Remove Event</button>
                   <p>
                     <%= event.description %>
                   </p>
-                </div>
-                <div class="card-action grey darken-3">
-                  <a href="#">This is a link</a>
-                  <a href="#">This is a link</a>
                 </div>
               </div>
             </div>
@@ -81,22 +69,20 @@
           <div class="col l4 offset-l2 s12">
             <h5 class="white-text">Links</h5>
             <ul>
-              <li><a class="grey-text text-lighten-3" href="home.html">Home</a></li>
-              <li><a class="grey-text text-lighten-3" href="dashboard.html">Dashboard</a></li>
-              <li><a class="grey-text text-lighten-3" href="about.html">About Us</a></li>
+              <li><a class="grey-text text-lighten-3" href="/loggedin/home">Home</a></li>
+              <li><a class="grey-text text-lighten-3" href="/loggedin/dashboard">Dashboard</a></li>
+              <li><a class="grey-text text-lighten-3" href="/about">About Us</a></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="footer-copyright">
         <div class="container">
-          © 2018 ML is tatti
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          © 2018 FCC
         </div>
       </div>
     </footer>
   </div>
-  <!--</div>-->
 
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
