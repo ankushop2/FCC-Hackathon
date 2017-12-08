@@ -109,9 +109,9 @@
 							method: "POST",
 							data: { user: user }
 						}).success(function(response) {
-							**************************************************************************
-							window.location.replace(response);
-							**************************************************************************
+							var x = document.URL;
+							var url = x.substring(0, x.length - 6);
+							window.location.replace(url + response);
 						});
 					}).catch(function(error) {
 					 	var errorCode = error.code;
