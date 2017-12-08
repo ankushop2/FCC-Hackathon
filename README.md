@@ -1,4 +1,4 @@
-<p align="center"><img width="40%" src="public/img/FreeCodeCamp_logo.png" /></p>
+<p align="center"><img width="40%" src="https://design-style-guide.freecodecamp.org/downloads/freeCodeCamp.jpg" /></p>
 
 --------------------------------------------------------------------------------
 
