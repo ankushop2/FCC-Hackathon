@@ -49,7 +49,7 @@ Open browser and navigate to (http://localhost:8000)
  - Search Engine Optimization
  - Adding and Deleting events
  - Social Sign-in using Google
- - PageSpeed = 90/100 (https://goo.gl/a7GGPL)
+ - PageSpeed = 95% (https://goo.gl/ec5ayF)
  
  --------------------------------------------------------------------------------
  ## This app is currently deployed at (https://fcchack.herokuapp.com)
