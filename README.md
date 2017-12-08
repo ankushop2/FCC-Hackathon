@@ -16,6 +16,7 @@ This repository contains the website for Free Code Camp Bengaluru Group. (https:
 - body-parser
 - client-sessions
 - serve-favicon
+- firebase
 
 ### Demo
 ```
@@ -29,6 +30,7 @@ sudo npm install ejs --save
 sudo npm install body-parser --save
 sudo npm install client-sessions --save
 sudo npm install serve-favicon --save
+sudo npm install firebase --save
 
 node app.js
 ```
