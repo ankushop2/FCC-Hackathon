@@ -35,7 +35,7 @@ sudo npm install firebase --save
 node app.js
 ```
 
-Open browser and navigate to (http://localhost:3000)
+Open browser and navigate to (http://localhost:8000)
 
 --------------------------------------------------------------------------------
 
@@ -51,6 +51,11 @@ Open browser and navigate to (http://localhost:3000)
  - Social Sign-in using Google
  
  --------------------------------------------------------------------------------
+ ## This app is currently deployed at (https://fcchack.herokuapp.com)
+ 
+  --------------------------------------------------------------------------------
+  
+  
 ### Screenshots
 <p align="center"><img width="80%" src="/screenshots/login.jpg" /></p>
 <p align="center"><img width="80%" src="/screenshots/loginwithgoogle.jpg" /></p>
