@@ -67,7 +67,7 @@ app.post("/login",function(req,res){
 
 app.post("/loginWithGoogle", function(req, res) {
 	req.session.user = req.body.user;
-	res.send("http://localhost:3000/home");
+	res.send("/home");
 });
 
 app.post("/register", function(req, res) {
