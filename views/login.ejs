@@ -40,7 +40,6 @@
 	</style>
 </head>
 
-<!--<body ng-app="App">-->
 <body>
 	<div id="particles-js"></div>
 	<div id="overlay">
@@ -73,10 +72,6 @@
 								</div>
 							</form>
 
-							<!--<div ng-controller="google">
-								<button ng-click="onSignIn()" class="waves-effect waves-light btn black" style="float: right;"> Sign in using Google </button>
-							</div>-->
-
 							<button onclick="onSignIn()" class="waves-effect waves-light btn black" style="float: right;"> Sign in using Google </button>
 
 							<form action="/register" method="POST">
@@ -100,30 +95,6 @@
 
 	<script>
 		var provider = new firebase.auth.GoogleAuthProvider();
-		/*var app = angular.module("App", []);
-
-		app.controller("google", function($scope, $http) {
-			$scope.onSignIn = function() {
-				firebase.auth().signInWithPopup(provider).then(function(result) {
-						var token = result.credential.accessToken;
-					 	var user = JSON.stringify(result.user);
-						$http({
-							url: "/loginWithGoogle",
-							method: "POST",
-							data: { user: user }
-						}).success(function(response) {
-							var x = document.URL;
-							var url = x.substring(0, x.length - 6);
-							window.location.replace(url + response);
-						});
-					}).catch(function(error) {
-					 	var errorCode = error.code;
-					  	var errorMessage = error.message;
-					  	var email = error.email;
-					  	var credential = error.credential;
-				});
-			}
-		});*/
 
 		function onSignIn() {
 			firebase.auth().signInWithPopup(provider).then(function(result) {
