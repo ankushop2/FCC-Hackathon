@@ -140,6 +140,7 @@ app.get("/logout", function(req, res) {
 
 
 // SERVER STARTUP
-app.listen(3000, "localhost", function() {
+var port = process.env.PORT || 8000
+app.listen(port, function() {
     console.log("Server started on port number 3000...");
 });
