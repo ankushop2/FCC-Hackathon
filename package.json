@@ -1,0 +1,33 @@
+{
+  "name": "fcc-hackathon",
+  "version": "1.0.0",
+  "description": "<p align=\"center\"><img width=\"40%\" src=\"https://design-style-guide.freecodecamp.org/downloads/freeCodeCamp.jpg\" /></p>",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankushop2/FCC-Hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankushop2/FCC-Hackathon/issues"
+  },
+  "homepage": "https://github.com/ankushop2/FCC-Hackathon#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "client-sessions": "^0.8.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "firebase": "^4.8.0",
+    "serve-favicon": "^2.4.5"
+  },
+  "engines": {
+    "node": "9.2.0"
+  },
+   "scripts": {
+    "start": "node app.js"
+  }
+}
