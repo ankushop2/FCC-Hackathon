@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Welcome to FCC! </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+	<style type="text/css">
+		body {
+			background-color: #424242;
+		}
+
+		#flask {
+			width: 50%;
+			position: absolute;
+			left: 25%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="particles-js"></div>
+	<div id="overlay">
+		<div class="container">
+			<div id="flask" style="margin-top: 100px;">
+				<center>
+					<div class="card medium grey lighten-3">
+						<div style="padding-top: 2px; padding-left: 20px; padding-right: 20px;">
+							<h2> Log in </h2>
+
+							<form method="POST" action="/login">
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="email" type="text" class="validate" name="email">
+										<label for="email">Email</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="password" type="password" class="validate" name="password">
+										<label for="password">Password</label>
+									</div>
+								</div>
+
+								<br>
+
+								<div>
+									<button id="sign-in" class="waves-effect waves-light btn black" style="float: left;">Sign In</button>
+									<button onclick="googlesignin()" class="waves-effect waves-light btn black" style="float: right;"> Sign in using Google </button>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+<script src='https://threejs.org/examples/js/libs/stats.min.js'></script>
+
+    <script src="js/index.js"></script>
+</html>
