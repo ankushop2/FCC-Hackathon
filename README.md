@@ -39,3 +39,12 @@ Open browser and navigate to (http://localhost:3000)
 
 ### Description
  In the following project we have 3 modules incorporated along with firebase auth. We've used the node client-session modules to perform session handling using cookies. The front-end has been designed using [materializecss](http://materializecss.com) and [particles.js](https://github.com/VincentGarreau/particles.js/)
+ 
+ --------------------------------------------------------------------------------
+ 
+ ### Additional Features
+ 
+ - Search Engine Optimization
+ - Adding and Deleting events
+ 
+ --------------------------------------------------------------------------------
